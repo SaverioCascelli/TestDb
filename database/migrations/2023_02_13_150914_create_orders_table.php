@@ -13,20 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('resturant_type', function (Blueprint $table) {
-
-
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('resturant_id');
             $table->foreign('resturant_id')
                 ->references('id')
                 ->on('resturants')
                 ->cascadeOnDelete();
-
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')
-                ->references('id')
-                ->on('types')
-                ->cascadeOnDelete();
+            $table->float('total_price');
+            $table->timestamps();
         });
     }
 
@@ -37,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resturant_type');
+        Schema::dropIfExists('orders');
     }
 };

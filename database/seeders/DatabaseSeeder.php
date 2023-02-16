@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             cityTableSeeder::class,
             resturantTableSeeder::class,
             resturant_typeTableSeeder::class,
+            dishTableSeeder::class,
 
 
         ]);
